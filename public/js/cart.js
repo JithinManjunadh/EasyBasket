@@ -1,8 +1,6 @@
-/* ============================================================
-   LUMEO — CART JS
-   ============================================================ */
+/*CART JS */
 
-/* ── ADD TO CART ────────────────────────────────────────────── */
+/* ── ADD TO CART ── */
 document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
   btn.addEventListener('click', async (e) => {
     e.preventDefault();
@@ -33,7 +31,7 @@ document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
 });
 
 
-/* ── FULL REMOVE (× button) ─────────────────────────────────── */
+/* ── FULL REMOVE (× button) ── */
 document.querySelectorAll('.remove-btn').forEach(btn => {
   btn.addEventListener('click', async () => {
     const productId = btn.dataset.productId;
@@ -65,7 +63,7 @@ document.querySelectorAll('.remove-btn').forEach(btn => {
 });
 
 
-/* ── QTY +/- BUTTONS ────────────────────────────────────────── */
+/* ── QTY +/- BUTTONS ── */
 document.querySelectorAll('.qty-btn').forEach(btn => {
   btn.addEventListener('click', async () => {
     console.log("yes");
@@ -92,7 +90,7 @@ document.querySelectorAll('.qty-btn').forEach(btn => {
       }
 
       const data = await res.json();
-      console.log('update response:', data);   // ← helpful during debugging
+      //console.log('update response:', data);   // ← helpful during debugging
 
       if (data.success) {
         if (data.removed) {
@@ -132,7 +130,7 @@ document.querySelectorAll('.qty-btn').forEach(btn => {
 });
 
 
-/* ── HELPERS ─────────────────────────────────────────────────── */
+/* ── HELPERS ── */
 
 function animateRemoveItem(productId) {
   const el = document.getElementById(`cart-item-${productId}`);

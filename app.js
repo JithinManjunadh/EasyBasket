@@ -88,7 +88,7 @@ app.use((req, res, next) => {
     next();
 });
 
-//first pafe redirection
+//first page redirection
 app.get("/", (req, res) => {
     res.redirect("/products");
 });

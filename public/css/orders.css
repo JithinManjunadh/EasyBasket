@@ -1,6 +1,4 @@
-/* ============================================================
-   LUMEO — ORDERS PAGE STYLES
-   ============================================================ */
+/*ORDERS PAGE STYLES*/
 
 .orders-page {
   max-width: 860px;
@@ -279,7 +277,7 @@
   margin-top: 32px;
 }
 
-/* ── RESPONSIVE ───────────────────────────────────────────── */
+/* ── RESPONSIVE ──*/
 @media (max-width: 640px) {
   .order-header {
     padding: 14px 16px;

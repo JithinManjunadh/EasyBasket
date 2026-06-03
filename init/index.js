@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Product = require('../models/product');  // adjust path if needed
+const Product = require('../models/product');
 const sampleProducts = require('./data');
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/primeshelf";
