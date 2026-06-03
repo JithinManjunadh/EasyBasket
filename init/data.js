@@ -250,4 +250,33 @@ const sampleProducts = [
     }
   }
 ];
+
+
+// seed data to MongoDB atlas
+// require("dotenv").config();
+// const mongoose = require('mongoose');
+// const Product = require('../models/product');
+
+// const MONGO_URL = process.env.ATLASDB_URL;
+
+// main()
+// .then(() => {
+// console.log("Connected to DB");
+// })
+// .catch((err) => {
+// console.log(err);
+// });
+
+// async function main() {
+// await mongoose.connect(MONGO_URL);
+// }
+
+// const initDB = async () => {
+// await Product.deleteMany({});
+// await Product.insertMany(sampleProducts);
+
+// console.log("Database seeded successfully!");
+// };
+
+// initDB();
 module.exports = sampleProducts;

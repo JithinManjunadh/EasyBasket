@@ -1,22 +1,6 @@
 <%- layout("layouts/boilerplate") %>
 
-<div class="top-bar">
-  <div class="category-menu">
-    <% const categories = ['All','Electronics','Books','Clothing','Furniture','Toys']; %>
-    <% categories.forEach(cat => { %>
-      <a href="/products?category=<%= cat %>" class="menu-item <%= category === cat ? 'active' : '' %>">
-        <%= cat %>
-      </a>
-    <% }) %>
-  </div>
-
-  <a href="/cart" class="cart-btn">
-    <i class="fa-solid fa-bag-shopping"></i>
-    <span id="cart-count">0</span>
-  </a>
-</div>
-
-<% if (category === 'All') { %>
+<% if(category === 'All') { %>
 <div class="carousel-container">
   <div class="carousel-slide active">
     <img src="/images/flight.jpg" alt="Mega Deals">
@@ -29,12 +13,12 @@
   </div>
 
   <div class="carousel-slide next">
-    <img src="/images/buds.jpg" alt="Limited Time Offers">
+    <img src="https://images.unsplash.com/photo-1757168120889-4317e57a4849?q=80&w=1074&auto=format&fit=crop" alt="Limited Time Offers">
     <div class="carousel-text-box"></div>
   </div>
 
   <div class="carousel-slide next">
-    <img src="/images/sale.jpg" alt="Flash Sale">
+    <img src="https://plus.unsplash.com/premium_photo-1672883552013-506440b2f11c?q=80&w=1974&auto=format&fit=crop">
     <div class="carousel-text-box">
       <h2>Flash Sale!</h2>
       <h3>Save Big Today!</h3>
@@ -44,7 +28,7 @@
   </div>
 
   <div class="carousel-slide next">
-    <img src="/imaages/card.jpg" alt="Card Offers">
+    <img src="https://images.unsplash.com/photo-1733506312514-267f8134208a?auto=format&fit=crop&q=80&w=1170">
     <div class="carousel-text-box">
       <h2>Exclusive for Members</h2>
       <h3>Get 15% Off Your Next Purchase</h3>
@@ -53,7 +37,7 @@
   </div>
 
   <div class="carousel-slide next">
-    <img src="/images/mobiles.jpg" alt="New Arrivals">
+    <img src="https://images.unsplash.com/photo-1604671368394-2240d0b1bb6c?q=80&w=1331&auto=format&fit=crop" alt="New Arrivals">
     <div class="carousel-text-box">
       <h2>Fresh Stock Just In!</h2>
       <h3>Discover the Latest Trends</h3>
@@ -74,6 +58,17 @@
 </div>
 <% } %>
 
+<div class="top-bar">
+  <div class="category-menu">
+    <% const categories = ['All','Electronics','Books','Clothing','Furniture','Toys']; %>
+    <% categories.forEach(cat => { %>
+      <a href="/products?category=<%= cat %>" class="menu-item <%= category === cat ? 'active' : '' %>">
+        <%= cat %>
+      </a>
+    <% }) %>
+  </div>
+</div>
+
 <% if (products.length === 0) { %>
   <div class="empty-products">
     <div class="empty-products-icon"><i class="fa-solid fa-box-open"></i></div>
@@ -86,41 +81,23 @@
     <% products.forEach(p => { %>
       <div class="col">
         <div class="card listing-card">
-
           <div class="card-img-wrapper">
-            <img
-              src="<%= p.image.url %>"
-              class="card-img-top show-img"
-              alt="<%= p.title %>"
-              loading="lazy"
-            >
+            <img src="<%= p.image.url %>" class="card-img-top show-img" alt="<%= p.title %>" loading="lazy">
             <span class="card-category-badge"><%= p.category %></span>
           </div>
-
           <div class="card-body">
             <h5 class="card-title"><%= p.title %></h5>
             <p class="card-text">$<%= p.price %></p>
-
             <div class="product-btns">
               <a href="/products/<%= p._id %>" class="btn btn-primary">View</a>
-
-              <button
-                class="btn add-to-cart-btn <%= cartQuantities[p._id] ? 'in-basket' : '' %>"
-                data-product-id="<%= p._id %>"
-              >
-                <% if (cartQuantities[p._id]) { %>
-                  <i class="fa-solid fa-check"></i> In Basket
-                <% } else { %>
-                  Add to Cart
-                <% } %>
+              <button class="btn add-to-cart-btn <%= cartQuantities[p._id] ? 'in-basket' : '' %>" data-product-id="<%= p._id %>">
+                <%= cartQuantities[p._id] ? 'In Basket' : 'Add to Cart' %>
               </button>
-
               <span class="product-quantity" id="quantity-<%= p._id %>">
                 <%= cartQuantities[p._id] || '' %>
               </span>
             </div>
           </div>
-
         </div>
       </div>
     <% }) %>
