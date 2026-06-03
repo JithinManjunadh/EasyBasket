@@ -57,9 +57,10 @@ store.on("error", (err)=>{
 
 // Session & Flash
 const sessionConfig = {
+    store: store,
     secret: process.env.SECRET,
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     cookie: { httpOnly: true, maxAge: 1000 * 60 * 60 * 24 } // 1 day
 };
 app.use(session(sessionConfig));
@@ -85,6 +86,11 @@ app.use((req, res, next) => {
 app.use((req, res, next) => {
     res.locals.category = null; // default for all pages
     next();
+});
+
+//first pafe redirection
+app.get("/", (req, res) => {
+    res.redirect("/products");
 });
 
 // Routes
