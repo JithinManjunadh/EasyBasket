@@ -1,0 +1,90 @@
+<%- layout('layouts/boilerplate') %>
+
+<div class="new-product-page">
+
+  <div class="new-product-card">
+
+    <div class="new-product-header">
+      <h1 class="new-product-title">Add New Product</h1>
+      <p class="new-product-subtitle">Fill in the details below to list a new product on Lumeo.</p>
+    </div>
+
+    <form action="/products" method="POST" class="new-product-form">
+
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          name="title"
+          id="title"
+          placeholder="e.g. Wireless Noise-Cancelling Headphones"
+          required
+        >
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea
+          class="form-control"
+          name="description"
+          id="description"
+          rows="4"
+          placeholder="Describe the product — features, condition, highlights..."
+          required
+        ></textarea>
+      </div>
+
+      <div class="form-row-two">
+        <div class="mb-3">
+          <label for="price" class="form-label">Price (USD)</label>
+          <div class="input-with-prefix">
+            <span class="input-prefix">$</span>
+            <input
+              type="number"
+              step="0.01"
+              min="0"
+              class="form-control input-prefixed"
+              name="price"
+              id="price"
+              placeholder="0.00"
+              required
+            >
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="category" class="form-label">Category</label>
+          <select class="form-select" name="category" id="category" required>
+            <option value="" disabled selected>Select a category</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Books">Books</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Furniture">Furniture</option>
+            <option value="Toys">Toys</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label for="imageUrl" class="form-label">Image URL</label>
+        <input
+          type="text"
+          class="form-control"
+          name="imageUrl"
+          id="imageUrl"
+          placeholder="https://example.com/image.jpg"
+          required
+        >
+        <p class="input-hint">Paste a direct link to the product image.</p>
+      </div>
+
+      <button type="submit" class="btn-lumeo-primary w-100 btn-submit-product">
+        <i class="fa-solid fa-plus"></i>
+        List Product
+      </button>
+
+    </form>
+  </div>
+
+</div>

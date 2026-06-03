@@ -1,0 +1,106 @@
+<nav class="site-navbar" id="siteNavbar">
+  <div class="navbar-inner">
+
+    <!-- Logo -->
+    <a class="navbar-logo" href="/products">EasyBasket</a>
+
+    <!-- Search Bar -->
+    <form class="navbar-search" action="/products" method="GET">
+      <i class="fa-solid fa-magnifying-glass search-icon"></i>
+      <input
+        class="search-input"
+        type="search"
+        name="search"
+        placeholder="Search products, categories..."
+        aria-label="Search products"
+      >
+    </form>
+
+    <!-- Desktop Nav Links -->
+    <div class="navbar-actions">
+      <a href="/products/new" class="nav-action-link">
+        <i class="fa-solid fa-plus"></i>
+        <span>Add Product</span>
+      </a>
+
+      <% if (!currentUser) { %>
+        <a href="/signup" class="nav-action-link">Signup</a>
+        <a href="/login" class="nav-action-link">Login</a>
+      <% } else { %>
+        <a href="/orders" class="nav-action-link">
+          <i class="fa-regular fa-clock"></i>
+          <span>Orders</span>
+        </a>
+        <a href="/logout" class="nav-action-link">Logout</a>
+      <% } %>
+
+      <!-- Cart Button -->
+      <a href="/cart" class="navbar-cart-btn">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span id="cart-count" class="cart-count-badge">0</span>
+      </a>
+    </div>
+
+    <!-- Mobile Hamburger -->
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-inner">
+      <form class="mobile-search" action="/products" method="GET">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" name="search" placeholder="Search products...">
+      </form>
+
+      <div class="mobile-nav-links">
+        <a href="/products/new" class="mobile-nav-link">
+          <i class="fa-solid fa-plus"></i> Add Product
+        </a>
+        <% if (!currentUser) { %>
+          <a href="/signup" class="mobile-nav-link">
+            <i class="fa-regular fa-user"></i> Signup
+          </a>
+          <a href="/login" class="mobile-nav-link">
+            <i class="fa-solid fa-right-to-bracket"></i> Login
+          </a>
+        <% } else { %>
+          <a href="/orders" class="mobile-nav-link">
+            <i class="fa-regular fa-clock"></i> Order History
+          </a>
+          <a href="/logout" class="mobile-nav-link">
+            <i class="fa-solid fa-right-from-bracket"></i> Logout
+          </a>
+        <% } %>
+        <a href="/cart" class="mobile-nav-link mobile-cart-link">
+          <i class="fa-solid fa-bag-shopping"></i> View Cart
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  mobileMenuBtn.addEventListener('click', () => {
+    mobileMenuBtn.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  // Navbar scroll shadow
+  window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('siteNavbar');
+    if (window.scrollY > 10) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+</script>

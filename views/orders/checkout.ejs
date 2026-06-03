@@ -1,0 +1,146 @@
+<%- layout("layouts/boilerplate") %>
+<link rel="stylesheet" href="/css/checkout.css">
+
+<div class="checkout-page">
+
+  <div class="checkout-header">
+    <a href="/cart" class="checkout-back">
+      <i class="fa-solid fa-arrow-left"></i> Back to Cart
+    </a>
+    <h1 class="checkout-title">Checkout</h1>
+    <p class="checkout-subtitle">Enter your delivery details below</p>
+  </div>
+
+  <div class="checkout-layout">
+
+    <!-- Delivery Form -->
+    <div class="checkout-form-card">
+
+      <div class="checkout-section-label">
+        <i class="fa-solid fa-location-dot"></i>
+        Delivery Address
+      </div>
+
+      <form action="/cart/checkout" method="POST" class="checkout-form">
+
+        <div class="checkout-form-row">
+          <div class="checkout-field">
+            <label class="form-label" for="fullName">Full Name</label>
+            <input
+              class="form-control"
+              type="text"
+              name="fullName"
+              id="fullName"
+              placeholder="John Doe"
+              required
+            >
+          </div>
+
+          <div class="checkout-field">
+            <label class="form-label" for="phone">Phone Number</label>
+            <input
+              class="form-control"
+              type="number"
+              name="phone"
+              id="phone"
+              placeholder="9876543210"
+              required
+            >
+          </div>
+        </div>
+
+        <div class="checkout-field">
+          <label class="form-label" for="street">Street Address</label>
+          <input
+            class="form-control"
+            type="text"
+            name="street"
+            id="street"
+            placeholder="123 Main Street, Apt 4B"
+            required
+          >
+        </div>
+
+        <div class="checkout-form-row">
+          <div class="checkout-field">
+            <label class="form-label" for="city">City</label>
+            <input
+              class="form-control"
+              type="text"
+              name="city"
+              id="city"
+              placeholder="Mumbai"
+              required
+            >
+          </div>
+
+          <div class="checkout-field">
+            <label class="form-label" for="pincode">Pincode</label>
+            <input
+              class="form-control"
+              type="number"
+              name="pincode"
+              id="pincode"
+              placeholder="400001"
+              required
+            >
+          </div>
+        </div>
+
+        <div class="checkout-payment-box">
+          <div class="payment-method-label">
+            <i class="fa-solid fa-money-bill-wave"></i>
+            Payment Method
+          </div>
+          <div class="payment-cod">
+            <div class="payment-cod-radio">
+              <span class="cod-dot"></span>
+            </div>
+            <div>
+              <div class="cod-title">Cash on Delivery</div>
+              <div class="cod-sub">Pay when your order arrives</div>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-place-order">
+          <i class="fa-solid fa-check-circle"></i>
+          Place Order
+        </button>
+
+      </form>
+    </div>
+
+    <!-- Right: Trust / Info Panel -->
+    <div class="checkout-info-col">
+
+      <div class="checkout-info-card">
+        <div class="checkout-info-title">
+          <i class="fa-solid fa-shield-halved"></i>
+          Safe & Secure
+        </div>
+        <ul class="checkout-info-list">
+          <li><i class="fa-solid fa-check"></i> Your data is encrypted</li>
+          <li><i class="fa-solid fa-check"></i> No payment info stored</li>
+          <li><i class="fa-solid fa-check"></i> COD — pay on delivery</li>
+          <li><i class="fa-solid fa-check"></i> Easy returns within 7 days</li>
+        </ul>
+      </div>
+
+      <div class="checkout-info-card">
+        <div class="checkout-info-title">
+          <i class="fa-solid fa-truck-fast"></i>
+          Delivery Info
+        </div>
+        <ul class="checkout-info-list">
+          <li><i class="fa-solid fa-check"></i> Estimated 3–5 business days</li>
+          <li><i class="fa-solid fa-check"></i> Free delivery on all orders</li>
+          <li><i class="fa-solid fa-check"></i> SMS updates on dispatch</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
