@@ -41,7 +41,7 @@ document.querySelectorAll(".add-to-cart-btn").forEach(btn => {
 updateCartIcon();
 updateProductQuantities();
 
-// Auto-dismiss flash messages after 5 seconds
+// Auto-dismiss flash messages after 4.5 seconds
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.flash').forEach(flash => {
     setTimeout(() => {

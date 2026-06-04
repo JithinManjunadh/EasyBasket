@@ -1,6 +1,4 @@
-/* ============================================================
-   LUMEO — MAIN STYLESHEET
-   ============================================================ */
+/*MAIN STYLESHEET*/
 
 :root {
   --color-primary: #1A1A1A;
@@ -959,7 +957,7 @@ p {
   margin-bottom: 24px;
 }
 
-/* ── CAROUSEL ─────────────────────────────────────────────── */
+/* ── CAROUSEL ─ */
 .carousel-container {
   width: 100%;
   height: 380px;
