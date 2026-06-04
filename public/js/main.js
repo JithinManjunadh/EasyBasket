@@ -40,3 +40,15 @@ document.querySelectorAll(".add-to-cart-btn").forEach(btn => {
 // Initialize on page load
 updateCartIcon();
 updateProductQuantities();
+
+// Auto-dismiss flash messages after 5 seconds
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.flash').forEach(flash => {
+    setTimeout(() => {
+      flash.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      flash.style.opacity = '0';
+      flash.style.transform = 'translateX(-50%) translateY(-12px)';
+      setTimeout(() => flash.remove(), 500);
+    }, 4500);
+  });
+});

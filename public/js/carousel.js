@@ -1,4 +1,7 @@
-/*CAROUSEL JS Smooth simultaneous slide-in + slide-out with direction*/
+/* ============================================================
+   LUMEO — CAROUSEL JS
+   Smooth simultaneous slide-in + slide-out with direction
+   ============================================================ */
 
 const slides   = document.querySelectorAll('.carousel-slide');
 const dots     = document.querySelectorAll('.dot');
@@ -6,7 +9,7 @@ let current    = 0;
 let animating  = false;
 let autoTimer  = null;
 
-/*move from one slide to another */
+/* ── Core: move from one slide to another ─────────────────── */
 function goTo(newIndex, direction) {
   if (animating || newIndex === current) return;
   animating = true;
@@ -24,7 +27,7 @@ function goTo(newIndex, direction) {
   // Force reflow so the browser registers the starting position
   void inSlide.offsetWidth;
 
-  // apply smooth transitions to both slides simultaneously
+  // Now apply smooth transitions to both slides simultaneously
   const DURATION = '0.55s';
   const EASING   = 'cubic-bezier(0.4, 0, 0.2, 1)';
 
@@ -54,7 +57,7 @@ function goTo(newIndex, direction) {
   });
 }
 
-/* ── next / prev helpers ─*/
+/* ── next / prev helpers ──────────────────────────────────── */
 function nextSlide() {
   goTo((current + 1) % slides.length, 'next');
 }
@@ -63,14 +66,14 @@ function prevSlide() {
   goTo((current - 1 + slides.length) % slides.length, 'prev');
 }
 
-/* ── plusSlides — called by onclick in the HTML ─*/
+/* ── plusSlides — called by onclick in the HTML ───────────── */
 function plusSlides(n) {
   if (n > 0) nextSlide();
   else       prevSlide();
   resetAutoPlay();
 }
 
-/* ── currentSlide — called by dot onclick in the HTML ─ */
+/* ── currentSlide — called by dot onclick in the HTML ──────── */
 function currentSlide(n) {
   const newIndex  = n - 1;   // HTML uses 1-based index
   const direction = newIndex > current ? 'next' : 'prev';
@@ -78,7 +81,7 @@ function currentSlide(n) {
   resetAutoPlay();
 }
 
-/* ── Auto-play ──*/
+/* ── Auto-play ────────────────────────────────────────────── */
 function startAutoPlay() {
   autoTimer = setInterval(nextSlide, 4000);
 }
@@ -88,14 +91,13 @@ function resetAutoPlay() {
   startAutoPlay();
 }
 
-/* ── Initialise ──*/
+/* ── Initialise ───────────────────────────────────────────── */
 function init() {
-  // Position all slides off-screen to the right, except slide 0
-  slides.forEach((slide, i) => {
-    slide.style.transition = 'none';
-    slide.style.transform  = i === 0 ? 'translateX(0)' : 'translateX(100%)';
-    slide.style.zIndex     = i === 0 ? '2' : '1';
-  });
+  // CSS already hides all slides off-screen via translateX(100%)
+  // Just bring slide 0 into view
+  slides[0].style.transition = 'none';
+  slides[0].style.transform  = 'translateX(0)';
+  slides[0].style.zIndex     = '2';
 
   if (dots[0]) dots[0].classList.add('active');
   startAutoPlay();
