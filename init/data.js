@@ -24,7 +24,7 @@ const sampleProducts = [
   {
     title: "Wireless Headphones",
     description: "Noise-cancelling over-ear headphones",
-    price: 199,
+    price: 599,
     category: "Electronics",
     image: {
       url: "https://plus.unsplash.com/premium_photo-1679513691474-73102089c117?q=80&w=1113&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -253,30 +253,30 @@ const sampleProducts = [
 
 
 // seed data to MongoDB atlas
-// require("dotenv").config();
-// const mongoose = require('mongoose');
-// const Product = require('../models/product');
-
+require("dotenv").config();
+const mongoose = require('mongoose');
+const Product = require('../models/product');
+const MONGO_URL = "mongodb://127.0.0.1:27017/primeshelf";
 // const MONGO_URL = process.env.ATLASDB_URL;
 
-// main()
-// .then(() => {
-// console.log("Connected to DB");
-// })
-// .catch((err) => {
-// console.log(err);
-// });
+main()
+.then(() => {
+console.log("Connected to DB");
+})
+.catch((err) => {
+console.log(err);
+});
 
-// async function main() {
-// await mongoose.connect(MONGO_URL);
-// }
+async function main() {
+await mongoose.connect(MONGO_URL);
+}
 
-// const initDB = async () => {
-// await Product.deleteMany({});
-// await Product.insertMany(sampleProducts);
+const initDB = async () => {
+await Product.deleteMany({});
+await Product.insertMany(sampleProducts);
 
-// console.log("Database seeded successfully!");
-// };
+console.log("Database seeded successfully!");
+};
 
-// initDB();
+initDB();
 module.exports = sampleProducts;
